@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cptjh4una66ob"]
+
+[ext_resource type="Texture2D" uid="uid://de7fq5v54l4e3" path="res://assets/sprites/guinevere_.png" id="1_jii1r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b64p7"]
+atlas = ExtResource("1_jii1r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bdkl"]
+atlas = ExtResource("1_jii1r")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mhd2"]
+atlas = ExtResource("1_jii1r")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a674"]
+atlas = ExtResource("1_jii1r")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfguh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b64p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bdkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mhd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a674")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31j57"]
+size = Vector2(13, 18)
+
+[node name="Area2D" type="Area2D" groups=["enemy"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gfguh")
+autoplay = "default"
+frame = 2
+frame_progress = 0.486471
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_31j57")

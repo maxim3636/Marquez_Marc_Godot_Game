@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds5n0sx4tmj0y"]
+
+[ext_resource type="Texture2D" uid="uid://bgktphyx1fers" path="res://assets/sprites/excalibur_.png" id="1_6o51f"]
+[ext_resource type="Script" path="res://scripts/sword.gd" id="1_sx4sf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q1so"]
+size = Vector2(4.1716, 13.1052)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s7ud"]
+atlas = ExtResource("1_6o51f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2as33"]
+atlas = ExtResource("1_6o51f")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uya"]
+atlas = ExtResource("1_6o51f")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3076c"]
+atlas = ExtResource("1_6o51f")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jpbo"]
+animations = [{
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_7s7ud")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_2as33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3076c")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 8.0
+}]
+
+[node name="Sword" type="Node2D"]
+script = ExtResource("1_sx4sf")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-2.20041, -3.0641)
+rotation = -0.602139
+shape = SubResource("RectangleShape2D_0q1so")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -0.628319
+sprite_frames = SubResource("SpriteFrames_0jpbo")
+animation = &"swing"
+frame = 3
+frame_progress = 1.0
